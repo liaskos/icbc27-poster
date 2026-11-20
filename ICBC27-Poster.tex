@@ -1,0 +1,109 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+%Template version as of 6/27/2024
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+
+% My libs
+\usepackage{xspace}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{pdflscape}
+\usepackage{hyperref}
+\usepackage{comment}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+
+\long\def\red#1{{\color{red}#1}}
+\newcommand{\cc}[1]{{\small{\tt #1}}}
+\newcommand{\rf}{\textcolor{red}{[C]}\xspace}
+\newcommand{\rc}[1]{\textcolor{red}{[#1]}\xspace}
+\newcommand{\R}{{\mathbb R}} 
+\newcommand{\ff}{\hspace{-0.1em}f}
+
+\newcommand{\repo}{repo-name}
+\newcommand{\CNSim}{CNS\xspace}
+
+
+\begin{document}
+
+\title{Conference Paper Title*\\
+{\footnotesize \textsuperscript{*}Note: Sub-titles are not captured for https://ieeexplore.ieee.org  and
+should not be used}
+\thanks{Identify applicable funding agency here. If none, delete this.}
+}
+
+
+%\title{\red{Towards a finality-oriented simulation-based evaluation of blockchain consensus networks}}
+
+%\title{\red{Separating protocol logic from simulation infrastructure for rapid development of consensus protocol simulators: the CNSim framework}}
+
+%\title{\red{CNSim: towards a model-driven consensus protocol simulation engine}}
+
+\title{\red{Separating protocol logic from simulation infrastructure in consensus network simulations: \\ the CNSim framework}}
+
+
+\author{\IEEEauthorblockN{Amirreza Radjou\textsuperscript{1}, Kasra Zarei\textsuperscript{2}, Nina Dang\textsuperscript{1}, Edison Tran\textsuperscript{1}, Shafaat Razin\textsuperscript{1}, \\ Ghazal Rafati\textsuperscript{1}, Anthony Romaniello\textsuperscript{2}, Sotirios Liaskos\textsuperscript{2}}
+\IEEEauthorblockA{\textit{(1) Department of Electrical Engineering and Computer Science} \\ \textit{(2) School of Information Technology} \\
+\textit{York University}\\
+Toronto, Ontario \\
+email address or ORCID - Line 1\\
+email address or ORCID - Line 2}
+}
+
+
+%}
+
+\maketitle
+
+\begin{abstract}
+CNSim is an open-source, discrete-event, object-oriented framework for rapid model-driven development of consensus protocols simulators. The framework is centered on a set of core object-oriented assets developed on the basis of a conceptual model that is applicable and refinable to different consensus architectures. These assets implement functionalities that are bound to be common in most simulation contexts, including configuration mechanisms, data collection and logging infrastructure, event queue maintenance, network modeling and operation, and data analysis. In this way, protocol designers wishing to explore and test a new protocol idea can focus on the details of the protocol per se without concerning themselves with simulation infrastructure. Such separation between infrastructure and protocol-specific logic, allows the former to be separately maintained, quality controlled, enriched, and optimized, so that the latter can benefit from a robust and evolving platform. 
+%Furthermore, the utilization of a common simulation engine and of the accompanying data analysis and visualization modules, pave the way for performing comparisons between protocols and configurations thereof. 
+We offer a brief overview of CNSim's conceptual model and its assets, describe and demonstrate a proof-of-concept instantiation of the framework for simulating Nakamoto consensus and the majority attack against the protocol, and sketch our strategy for further evolution and validation of the tool.
+
+\end{abstract}
+
+\begin{IEEEkeywords}
+Blockchain, Consensus Networks, Event-Driven Simulation
+\end{IEEEkeywords}
+
+\section{Introduction}
+
+Blockchain networks have been shown to offer a robust approach for witnessing histories of events by collectives of distributed agents, in a way that supports resilience, censorship-resistance, and non-repudiation. A secure and performant blockchain network relies on a well-designed and studied \textit{consensus protocol} which specifies how nodes can interact with each to establish a common history of transaction events, while delivering the above qualities. A great many such protocols have been developed, showing the diversity of ideas that have emerged in the field, as well as the design trade-offs that protocol designers are forced to analyze and address. One of the tools that protocol designers have at their disposal for testing ideas are consensus network simulators. A wealth of such simulators have been developed \rc{CITE surveys} for a variety of purposes and targeting different protocols and aspects thereof. However, only a small subset of these efforts are aimed at serving as reuseable, extensible platforms for the development of arbitrary protocol simulations (\rc{CITE JABs and related}). At the same time, there is limited investigation into how fair and credible comparisons among consensus protocols -- a challenge due to the diversity of the latter -- can be conducted using such simulators.
+
+CNSim is an object-oriented simulation framework aimed at serving as a platform for rapid development of diverse protocol simulations while also offering an opinionated data collection and analysis approach to support the commensurability of simulation results across protocols and configurations. CNSim is centered on a common conceptual model  \rc{CITE 2020 ICBC poster}, offering concepts and relationships that aim at representing common aspects of protocol architectures. The model is implemented as an object-oriented framework consisting of a set of abstractions and reusable assets that implement common simulation functions, such as event queue management, instrumentation, logging, and  configuration, that can be extended and instantiated for developing simulators of specific protocols. This allows both protocol designers to focus on the design of the protocol at hand, without being distracted with the simulator plumbing, and for the latter to be separately evolved, optimized, quality assured, and matured for the benefit of all instantiations that are based on it. At the same time, the simulator offers a data-collection logic that enables comparisons among protocols using common metrics.
+
+In this paper, we offer a brief description of how CNSim is structured (Section \ref{sec:cnsim}). We then demonstrate a proof-of-concept the implementation within CNSim of the classic Nakamoto consensus as well as an attack thereof \ref{sec:nakamoto}. We conclude with opportunities and challenges for the future \ref{sec:future}.
+
+
+\section{The CNSim Engine}\label{sec:cnsim}
+
+At the core of CNSim, lies CNSim-Engine, an object-oriented framework that \red{continue}.
+
+\begin{itemize}
+\item Describe the conceptual model (events, nodes etc.) and features.
+\end{itemize}
+
+\section{Case Study: Nakamoto Consensus and Majority Attack}\label{sec:nakamoto}
+\begin{itemize}
+\item Briefly describe how CNSim concepts are instantiated to develop the instance.
+\item Breifly describe how the attack was simulated
+\item Show examples of the analysis you did (maybe even a graph), and why the analysis is applicable to different protocols as well.
+\end{itemize}
+
+
+
+\section{Future Directions}\label{sec:future}
+
+\bibliographystyle{IEEEtran}
+%\bibliography{bib/Biblio.bib}
+
+\end{document}
